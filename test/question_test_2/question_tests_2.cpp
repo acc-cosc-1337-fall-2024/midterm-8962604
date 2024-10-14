@@ -5,8 +5,14 @@
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
+TEST_CASE("Test modifyByValue function") {
+    int value = 10;
+    modifyByValue(value);  // Pass by value, should not modify the original
+    REQUIRE(value == 10);  // Original value should remain the same
+}
 
-TEST_CASE("test")
-{
-	REQUIRE(test_config() == true);
+TEST_CASE("Test modifyByReference function") {
+    int value = 10;
+    modifyByReference(value);  // Pass by reference, should modify the original
+    REQUIRE(value == 20);      // Value should now be changed to 20
 }
